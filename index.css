@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 262 59% 25%; /* Dark Purple */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 262 55% 69%; /* #9F7AEA - Light Purple */
+    --secondary-foreground: 240 5.9% 10%;
+    
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 45 100% 50%; /* #FFD700 - Gold accent */
+    --accent-foreground: 240 5.9% 10%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    
+    --sidebar-background: 262 59% 25%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 45 100% 50%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 262 55% 69%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 240 4.9% 83.9%;
+    
+    --chart-1: 262 59% 25%;
+    --chart-2: 262 55% 69%;
+    --chart-3: 45 100% 50%;
+    --chart-4: 192 75% 58%;
+    --chart-5: 335 78% 58%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  /* Typography Classes */
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Background Classes */
+  .bg-gradient-purple {
+    @apply bg-gradient-to-r from-primary via-secondary to-primary bg-[length:400%_400%] animate-gradient-x;
+  }
+  
+  /* Animations */
+  @keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Card Hover */
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .card-hover:hover {
+    @apply -translate-y-1 shadow-lg shadow-primary/30;
+  }
+  
+  /* Text Shadow */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Hide Scrollbar */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
