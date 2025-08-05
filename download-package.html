@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download SitesByAmin Code</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #3B82F6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .file-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 15px;
+        }
+        .file-name {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        .download-btn {
+            background: #3B82F6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .download-btn:hover {
+            background: #2563eb;
+        }
+        .download-all {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            width: 100%;
+        }
+        .download-all:hover {
+            background: #047857;
+        }
+        .instructions {
+            background: #e7f3ff;
+            border-left: 4px solid #3B82F6;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SitesByAmin - Download Code Files</h1>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <p>1. Click "Download All Files" to get a ZIP file with all project files</p>
+            <p>2. Or download individual files using the buttons below</p>
+            <p>3. Extract the ZIP file and run <code>npm install</code> then <code>npm run dev</code> to start the project</p>
+        </div>
+
+        <button class="download-all" onclick="downloadAllFiles()">📦 Download All Files as ZIP</button>
+
+        <div id="filesList"></div>
+    </div>
+
+    <script>
+        const files = {
+            'package.json': `{
+  "name": "sitesbyamin-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^9.9.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.3.0",
+    "vite": "^5.4.2"
+  }
+}`,
+            'index.html': `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SitesByAmin - Professional Website Development</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>`,
+            'src/main.tsx': `import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);`,
+            'src/index.css': `@tailwind base;
+@tailwind components;
+@tailwind utilities;`,
+            'src/App.tsx': `import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import Testimonials from './components/Testimonials';
+import Footer from './components/Footer';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-[#3B82F6]">
+      <Navbar />
+      <Hero />
+      <Features />
+      <Testimonials />
+      <Footer />
+    </div>
+  );
+}
+
+export default App`,
+            'src/components/Navbar.tsx': `import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <nav className="bg-[#3B82F6] shadow-lg sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex items-center">
+            <div className="flex-shrink-0 flex items-center">
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToTop();
+                }}
+                className="text-xl font-bold text-white hover:text-white/90 transition-colors"
+              >
+                SitesByAmin
+              </a>
+            </div>
+            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+              <a href="#portfolio" className="text-white/80 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
+                Portfolio
+              </a>
+              <a href="#testimonials" className="text-white/80 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
+                Testimonials
+              </a>
+              <a href="#contact" className="text-white/80 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
+                Contact
+              </a>
+            </div>
+          </div>
+          <div className="hidden sm:ml-6 sm:flex sm:items-center">
+            <a href="#contact" className="bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-md text-sm font-medium">
+              Get Started
+            </a>
+          </div>
+          <div className="-mr-2 flex items-center sm:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-white/80 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {isOpen && (
+        <div className="sm:hidden">
+          <div className="pt-2 pb-3 space-y-1">
+            <a
+              href="#portfolio"
+              className="text-white/80 hover:text-white block px-3 py-2 text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Portfolio
+            </a>
+            <a
+              href="#testimonials"
+              className="text-white/80 hover:text-white block px-3 py-2 text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Testimonials
+            </a>
+            <a
+              href="#contact"
+              className="text-white/80 hover:text-white block px-3 py-2 text-base font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </a>
+            <div className="mt-4 px-3">
+              <a
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="block w-full bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-md text-sm font-medium text-center"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;`,
+            'src/components/Hero.tsx': `import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
+const Hero = () => {
+  return (
+    <div className="relative bg-[#3B82F6] overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <div className="sm:text-center lg:text-left">
+              <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+                <span className="block xl:inline">Professional Websites for</span>{' '}
+                <span className="block text-blue-100 xl:inline">Your Business</span>
+              </h1>
+              <p className="mt-3 text-base text-white/80 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                Transform your business with a stunning website. We specialize in creating beautiful, responsive websites for cafes, fitness centers, real estate agencies, and more.
+              </p>
+              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div className="rounded-md shadow">
+                  <a
+                    href="#contact"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50 md:py-4 md:text-lg md:px-10"
+                  >
+                    Get Started
+                  </a>
+                </div>
+                <div className="mt-3 sm:mt-0 sm:ml-3">
+                  <a
+                    href="#portfolio"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-white/20 hover:bg-white/30 md:py-4 md:text-lg md:px-10"
+                  >
+                    View Portfolio
+                  </a>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img
+          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+          src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          alt="Web Design Team"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Hero;`,
+            'src/components/Features.tsx': `import React from 'react';
+import { Building2, Dumbbell, Home, Building, Palette, Code, Rocket, HeartHandshake } from 'lucide-react';
+
+const Features = () => {
+  const features = [
+    {
+      name: 'Hotels & Resorts',
+      description: 'Showcase your luxury accommodations with an elegant website design.',
+      icon: Building2,
+      items: [
+        {
+          title: 'Luxury Hotels',
+          image: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg'
+        },
+        {
+          title: 'Beach Resorts',
+          image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg'
+        },
+        {
+          title: 'Boutique Hotels',
+          image: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg'
+        }
+      ]
+    },
+    {
+      name: 'Fitness & Gym',
+      description: 'Motivate and attract clients with an energetic, dynamic website.',
+      icon: Dumbbell,
+      items: [
+        {
+          title: 'Modern Gym',
+          image: 'https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg'
+        },
+        {
+          title: 'Yoga Studio',
+          image: 'https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg'
+        },
+        {
+          title: 'CrossFit Box',
+          image: 'https://images.pexels.com/photos/28080/pexels-photo.jpg'
+        }
+      ]
+    },
+    {
+      name: 'Real Estate',
+      description: 'Showcase properties with stunning galleries and virtual tours.',
+      icon: Home,
+      items: [
+        {
+          title: 'Luxury Homes',
+          image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg'
+        },
+        {
+          title: 'Modern Apartments',
+          image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg'
+        },
+        {
+          title: 'Commercial Spaces',
+          image: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg'
+        }
+      ]
+    }
+  ];
+
+  return (
+    <section id="portfolio" className="py-24 bg-[#3B82F6]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+            Specialized Website Solutions
+          </h2>
+          <p className="mt-4 text-xl text-white/80">
+            Beautiful, responsive websites tailored to your industry
+          </p>
+        </div>
+        <div className="mt-20 space-y-20">
+          {features.map((feature, index) => (
+            <div key={index} className="space-y-8">
+              <div className="flex items-center space-x-4">
+                <feature.icon className="h-8 w-8 text-white" />
+                <div>
+                  <h3 className="text-2xl font-bold text-white">{feature.name}</h3>
+                  <p className="text-white/80">{feature.description}</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {feature.items.map((item, itemIndex) => (
+                  <div
+                    key={itemIndex}
+                    className="relative group bg-white/10 backdrop-blur-lg rounded-lg overflow-hidden shadow-xl transform transition duration-500 hover:scale-105"
+                  >
+                    <div className="relative h-64 w-full overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover transform transition duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-30 transition-opacity"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <h4 className="text-lg font-semibold">{item.title}</h4>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Features;`,
+            'src/components/Testimonials.tsx': `import React from 'react';
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      name: 'Sarah Johnson',
+      role: 'CEO at TechStart',
+      content: 'This platform has transformed how we approach digital solutions. The results have been nothing short of extraordinary.',
+      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      name: 'Michael Chen',
+      role: 'Lead Developer',
+      content: 'The tools and support provided have significantly accelerated our development process. Highly recommended!',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      name: 'Emily Rodriguez',
+      role: 'Product Manager',
+      content: 'Our team productivity has increased dramatically. The intuitive interface makes complex tasks simple.',
+      image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=800'
+    }
+  ];
+
+  return (
+    <section id="testimonials" className="py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            Trusted by Innovators Worldwide
+          </h2>
+          <p className="mt-4 text-xl text-gray-500">
+            Don't just take our word for it - hear from some of our satisfied customers
+          </p>
+        </div>
+        <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-md overflow-hidden p-6 transform transition duration-500 hover:scale-105"
+            >
+              <div className="flex items-center">
+                <img
+                  className="h-12 w-12 rounded-full object-cover"
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                />
+                <div className="ml-4">
+                  <div className="text-lg font-medium text-gray-900">{testimonial.name}</div>
+                  <div className="text-sm text-indigo-600">{testimonial.role}</div>
+                </div>
+              </div>
+              <blockquote className="mt-4 text-gray-500">
+                "{testimonial.content}"
+              </blockquote>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;`,
+            'src/components/Footer.tsx': `import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Instagram } from 'lucide-react';
+
+const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.location.href = \`mailto:sitesbyamin@gmail.com?subject=Website Inquiry from \${formData.name}&body=\${formData.message}%0D%0A%0D%0AFrom: \${formData.email}\`;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <footer id="contact" className="bg-[#3B82F6] text-white">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-2xl font-bold mb-4">SitesByAmin</h3>
+            <p className="text-white/80">
+              Creating beautiful, responsive websites for businesses across Kenya and beyond.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
+            <div className="space-y-3">
+              <div className="flex items-center">
+                <Mail className="h-5 w-5 mr-2 text-white" />
+                <a href="mailto:sitesbyamin@gmail.com" className="text-white/80 hover:text-white">
+                  sitesbyamin@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Phone className="h-5 w-5 mr-2 text-white" />
+                <a href="tel:+254759236716" className="text-white/80 hover:text-white">
+                  +254 759 236 716
+                </a>
+              </div>
+              <div className="flex items-center">
+                <MapPin className="h-5 w-5 mr-2 text-white" />
+                <span className="text-white/80">Nairobi, Kenya</span>
+              </div>
+              <div className="flex items-center">
+                <Instagram className="h-5 w-5 mr-2 text-white" />
+                <a href="https://instagram.com/sitesbyamin" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white">
+                  @sitesbyamin
+                </a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-4">Send us a message</h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  className="w-full px-3 py-2 bg-white/10 rounded-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                  className="w-full px-3 py-2 bg-white/10 rounded-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  required
+                  rows={4}
+                  className="w-full px-3 py-2 bg-white/10 rounded-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white"
+                  value={formData.message}
+                  onChange={handleChange}
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-white text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-md transition duration-300"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+        <div className="mt-8 pt-8 border-t border-white/20">
+          <p className="text-center text-white/80">
+            © {new Date().getFullYear()} SitesByAmin. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;`,
+            'tailwind.config.js': `/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};`,
+            'vite.config.ts': `import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  optimizeDeps: {
+    exclude: ['lucide-react'],
+  },
+});`,
+            'postcss.config.js': `export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};`,
+            'tsconfig.json': `{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}`,
+            'tsconfig.app.json': `{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}`,
+            'tsconfig.node.json': `{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["vite.config.ts"]
+}`,
+            'eslint.config.js': `import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+  { ignores: ['dist'] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+    },
+  }
+);`,
+            'src/vite-env.d.ts': `/// <reference types="vite/client" />`,
+            'README.md': `# SitesByAmin - Professional Website Development
+
+A modern, responsive website showcasing professional web development services for businesses in Kenya and beyond.
+
+## Features
+
+- 🎨 Modern, responsive design
+- ⚡ Built with React + TypeScript + Vite
+- 🎯 Tailwind CSS for styling
+- 📱 Mobile-first approach
+- 🚀 Fast loading and optimized
+- 📧 Contact form integration
+- 🏨 Portfolio showcasing different industries (Hotels, Fitness, Real Estate)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Extract the downloaded files to your desired directory
+2. Navigate to the project directory:
+   \`\`\`bash
+   cd sitesbyamin-website
+   \`\`\`
+
+3. Install dependencies:
+   \`\`\`bash
+   npm install
+   \`\`\`
+
+4. Start the development server:
+   \`\`\`bash
+   npm run dev
+   \`\`\`
+
+5. Open your browser and visit \`http://localhost:5173\`
+
+## Available Scripts
+
+- \`npm run dev\` - Start development server
+- \`npm run build\` - Build for production
+- \`npm run preview\` - Preview production build
+- \`npm run lint\` - Run ESLint
+
+## Project Structure
+
+\`\`\`
+src/
+├── components/
+│   ├── Navbar.tsx      # Navigation component
+│   ├── Hero.tsx        # Hero section
+│   ├── Features.tsx    # Portfolio/Services section
+│   ├── Testimonials.tsx # Customer testimonials
+│   └── Footer.tsx      # Footer with contact form
+├── App.tsx             # Main app component
+├── main.tsx           # App entry point
+└── index.css          # Global styles
+\`\`\`
+
+## Customization
+
+### Colors
+The primary color scheme uses blue (#3B82F6). You can customize colors in the Tailwind classes throughout the components.
+
+### Content
+- Update contact information in \`Footer.tsx\`
+- Modify portfolio items in \`Features.tsx\`
+- Change testimonials in \`Testimonials.tsx\`
+- Update hero content in \`Hero.tsx\`
+
+### Images
+All images are sourced from Pexels. Replace the URLs with your own images as needed.
+
+## Deployment
+
+### Build for Production
+\`\`\`bash
+npm run build
+\`\`\`
+
+The built files will be in the \`dist\` directory, ready for deployment to any static hosting service.
+
+## Contact
+
+For questions or support:
+- Email: sitesbyamin@gmail.com
+- Phone: +254 759 236 716
+- Instagram: @sitesbyamin
+
+## License
+
+This project is proprietary software created by SitesByAmin.
+`
+        };
+
+        function downloadFile(filename, content) {
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function downloadAllFiles() {
+            // Create a simple ZIP-like structure by creating individual files
+            // Since we can't create actual ZIP files in browser without additional libraries,
+            // we'll create a folder structure guide and individual files
+            
+            const folderStructure = `SitesByAmin Website - File Structure Guide
+
+IMPORTANT: Create the following folder structure and place the downloaded files accordingly:
+
+sitesbyamin-website/
+├── package.json
+├── index.html
+├── README.md
+├── vite.config.ts
+├── tailwind.config.js
+├── postcss.config.js
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── eslint.config.js
+└── src/
+    ├── main.tsx
+    ├── App.tsx
+    ├── index.css
+    ├── vite-env.d.ts
+    └── components/
+        ├── Navbar.tsx
+        ├── Hero.tsx
+        ├── Features.tsx
+        ├── Testimonials.tsx
+        └── Footer.tsx
+
+After creating this structure:
+1. Run 'npm install' to install dependencies
+2. Run 'npm run dev' to start the development server
+3. Open http://localhost:5173 in your browser
+
+All files will be downloaded individually. Create the folder structure above and place each file in its correct location.
+`;
+
+            // Download the folder structure guide first
+            downloadFile('00-FOLDER-STRUCTURE-GUIDE.txt', folderStructure);
+            
+            // Download all files with prefixed names to indicate their location
+            Object.entries(files).forEach(([filename, content]) => {
+                const prefixedName = filename.includes('/') 
+                    ? filename.replace('/', '-') 
+                    : filename;
+                downloadFile(prefixedName, content);
+            });
+            
+            alert('All files are being downloaded! Please check your downloads folder and follow the folder structure guide.');
+        }
+
+        function renderFilesList() {
+            const filesList = document.getElementById('filesList');
+            
+            Object.keys(files).forEach(filename => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                fileItem.innerHTML = `
+                    <div class="file-name">${filename}</div>
+                    <button class="download-btn" onclick="downloadFile('${filename}', files['${filename}'])">
+                        📄 Download
+                    </button>
+                `;
+                
+                filesList.appendChild(fileItem);
+            });
+        }
+
+        // Initialize the page
+        renderFilesList();
+    </script>
+</body>
+</html>
